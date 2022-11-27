@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OB6-Dp-s8o">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Notes-->
+        <scene sceneID="saG-FN-E6P">
+            <objects>
+                <tableViewController storyboardIdentifier="NotesScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OB6-Dp-s8o" customClass="ViewController" customModule="Ex11" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="CUF-hb-hid">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="note_cell" id="MZm-fh-b6z">
+                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MZm-fh-b6z" id="yBq-MP-0rB">
+                                    <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="OB6-Dp-s8o" id="u4A-Vp-tgW"/>
+                            <outlet property="delegate" destination="OB6-Dp-s8o" id="kvW-3j-J5S"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems>
+                        <barButtonItem enabled="NO" title="Item" image="trash" catalog="system" id="sRg-8a-7ID">
+                            <connections>
+                                <action selector="deleteNotes:" destination="OB6-Dp-s8o" id="fAG-PS-SCy"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="Pa9-Va-vn2"/>
+                        <barButtonItem title="Item" image="rectangle.and.pencil.and.ellipsis" catalog="system" style="done" id="hF8-Ba-ctZ">
+                            <connections>
+                                <action selector="addNote:" destination="OB6-Dp-s8o" id="dsP-uQ-n0l"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Notes" id="zeS-KA-kCS"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="trashBtn" destination="sRg-8a-7ID" id="CP2-Rw-17e"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WtO-JB-4ls" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-905" y="4"/>
+        </scene>
+        <!--NoteVC-->
+        <scene sceneID="YWz-HL-8Jj">
+            <objects>
+                <viewController storyboardIdentifier="NoteScreen" id="lpM-qf-K7X" customClass="NoteVC" customModule="iOS_Intro_Demo" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BE8-iu-66K">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="IXB-Py-3NA">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="F5N-SR-7am"/>
+                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="F5N-SR-7am" firstAttribute="bottom" secondItem="IXB-Py-3NA" secondAttribute="bottom" id="8cZ-ld-EOB"/>
+                            <constraint firstItem="IXB-Py-3NA" firstAttribute="leading" secondItem="F5N-SR-7am" secondAttribute="leading" id="8lg-Sv-883"/>
+                            <constraint firstItem="IXB-Py-3NA" firstAttribute="centerY" secondItem="F5N-SR-7am" secondAttribute="centerY" id="Lfb-CY-BQm"/>
+                            <constraint firstItem="IXB-Py-3NA" firstAttribute="centerX" secondItem="F5N-SR-7am" secondAttribute="centerX" id="iQ5-YO-KCR"/>
+                            <constraint firstItem="IXB-Py-3NA" firstAttribute="top" secondItem="F5N-SR-7am" secondAttribute="top" id="lIC-ak-nWo"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="HwC-fP-wW9"/>
+                    <connections>
+                        <outlet property="noteTextView" destination="IXB-Py-3NA" id="7hm-TQ-vfz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qzJ-nv-I9f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-166" y="4"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="rectangle.and.pencil.and.ellipsis" catalog="system" width="128" height="80"/>
+        <image name="trash" catalog="system" width="117" height="128"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
